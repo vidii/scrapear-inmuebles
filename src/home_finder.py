@@ -159,6 +159,7 @@ mlc = MercadoCrawler()
 if "SEND_CRON_TEST" in os.environ:
     if (os.environ['SEND_CRON_TEST'] == 'True'):
         telegram_test_ping(bot_chatID=os.environ['TELEGRAM_CHAT_ID'])
+
 results = mlc.run_search()
 logger.info("Sending telegrams")
 

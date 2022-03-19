@@ -4,4 +4,4 @@ services:
     build:
       context: .
     env_file: .env
-    command: ["sh", "run.sh"]
+    command: ["bash", "run.sh"]
