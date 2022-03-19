@@ -8,15 +8,33 @@ import time
 import requests
 from bs4 import BeautifulSoup
 
-DEFAULT_ZONES = ['parque-chas',
-                 'villa-urquiza',
-                 'agronomia',
-                 'villa-ortuzar',
-                 'chacarita',
-                 'saavedra',
-                 'paternal',
-                 'colegiales',
-                 'villa-crespo']
+DEFAULT_ZONES = [
+    "barrio-norte",
+    "belgrano",
+    "caballito",
+    "recoleta",
+    "belgrano-c",
+    "belgrano-chico",
+    "botanico",
+    "agronomia",
+    "chacarita",
+    "coghlan",
+    "colegiales",
+    "nunez",
+    "palermo",
+    "paternal",
+    "parque-chas",
+    "parque-chacabuco",
+    "parque-centenario",
+    "saavedra",
+    "santa-rita",
+    "villa-crespo",
+    "villa-del-parque",
+    "villa-devoto",
+    "villa-gral-mitre",
+    "villa-ortuzar",
+    "villa-urquiza"
+]
 
 DEFAULT_KINDS = ['ph', 'departamentos']
 
@@ -34,7 +52,7 @@ logger = logging.getLogger('MercadoCrawler')
 class MercadoCrawler:
     BASE_URL = 'https://inmuebles.mercadolibre.com.ar/{kind}/alquiler/capital-federal/{zone}/{term}_PriceRange_{min_price}-{max_price}_NoIndex_True'
 
-    def __init__(self, zones=None, kinds=None, terms=None, min_total_price=20000,max_total_price=150000, min_ambientes=2):
+    def __init__(self, zones=None, kinds=None, terms=None, min_total_price=50000,max_total_price=150000, min_ambientes=3):
         """Search mercado libre house listings"""
         if terms is None:
             terms = DEFAULT_TERMS
