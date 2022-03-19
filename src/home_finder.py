@@ -52,7 +52,7 @@ logger = logging.getLogger('MercadoCrawler')
 class MercadoCrawler:
     BASE_URL = 'https://inmuebles.mercadolibre.com.ar/{kind}/alquiler/capital-federal/{zone}/{term}_PriceRange_{min_price}-{max_price}_NoIndex_True'
 
-    def __init__(self, zones=None, kinds=None, terms=None, min_total_price=50000,max_total_price=150000, min_ambientes=3):
+    def __init__(self, zones=None, kinds=None, terms=None, min_total_price=40000,max_total_price=100000, min_ambientes=2):
         """Search mercado libre house listings"""
         if terms is None:
             terms = DEFAULT_TERMS
