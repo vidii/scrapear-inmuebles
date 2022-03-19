@@ -12,7 +12,7 @@ Buscador de inmuebles + alertas en bot de telegram
 1. Clonar el repositorio
 2. Copiar .env.example a .env y completar  `TELEGRAM_BOT_TOKEN`y `TELEGRAM_CHAT_ID`
 3. Build via `docker compose build`
-4. Ejecutar con `docker compose up`
+4. Ejecutar con `docker-compose up`
 
 Listo, server con cron cada 1 hora ya está funcionando
 
