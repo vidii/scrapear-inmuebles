@@ -139,6 +139,7 @@ class MercadoCrawler:
 
 def telegram_bot_sendtext(bot_message, bot_chatID=None):
     bot_token = os.environ['TELEGRAM_BOT_TOKEN']
+    logger.info(bot_message)
     send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=' + bot_chatID + '&parse_mode=Markdown&text=' + bot_message
 
     response = requests.get(send_text)
@@ -146,9 +147,22 @@ def telegram_bot_sendtext(bot_message, bot_chatID=None):
     return response.json()
 
 
+def telegram_test_ping(bot_chatID=None):
+    bot_token = os.environ['TELEGRAM_BOT_TOKEN']
+    logger.info("Sending cron ping to telegram")
+    send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=' + bot_chatID + '&parse_mode=Markdown&text=Cron:**Running**'
+    response = requests.get(send_text)
+
+
+
 mlc = MercadoCrawler()
+if "SEND_CRON_TEST" in os.environ:
+    if (os.environ['SEND_CRON_TEST'] == 'True'):
+        telegram_test_ping(bot_chatID=os.environ['TELEGRAM_CHAT_ID'])
 results = mlc.run_search()
 logger.info("Sending telegrams")
+
+
 
 for ml_id, description in results.items():
     msg = ''
