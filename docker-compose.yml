@@ -1,0 +1,7 @@
+version: "3"
+services:
+  homefinder:
+    build:
+      context: .
+    env_file: .env
+    command: ["bash", "run.sh"]
