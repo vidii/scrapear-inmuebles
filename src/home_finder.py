@@ -11,7 +11,7 @@ from bs4 import BeautifulSoup
 DEFAULT_ZONES = [
     "villa-pueyrredon",
     "villa-devoto",
-    "villa-urquiza"
+    "villa-urquiza",
     "parque-chas",
     "coghlan",
     "villa-del-parque",
