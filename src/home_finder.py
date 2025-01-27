@@ -15,7 +15,7 @@ DEFAULT_ZONES = [
     "villa-ortuzar", "villa-urquiza"
 ]
 DEFAULT_KINDS = ['casas', 'ph']
-DEFAULT_TERMS = ['parrilla']
+DEFAULT_TERMS = ['parrilla', 'jardin', 'cochera']
 SEEN_FILE = './seen_ids_ML.pkl'
 FIRST_RUN_FILE = './first_run_flag.txt'
 
