@@ -9,22 +9,21 @@ import requests
 from bs4 import BeautifulSoup
 
 # Constants
-DEFAULT_ZONES = [
-    "belgrano-r", "chacarita", "coghlan", "colegiales", "nunez", "palermo", "palermo-chico",
-    "palermo-hollywood", "palermo-soho", "paternal", "saavedra", "villa-crespo",
-    "villa-ortuzar", "villa-urquiza"
-]
-DEFAULT_KINDS = ['casas', 'ph']
-DEFAULT_TERMS = ['parrilla', 'jardin', 'cochera']
-SEEN_FILE = './seen_ids_ML.pkl'
-FIRST_RUN_FILE = './first_run_flag.txt'
+DEFAULT_ZONES = os.getenv("DEFAULT_ZONES", "belgrano-r,chacarita,coghlan,colegiales,nunez,palermo,palermo-chico,palermo-hollywood,palermo-soho,paternal,saavedra,villa-crespo,villa-ortuzar,villa-urquiza").split(',')
+DEFAULT_KINDS = os.getenv("DEFAULT_KINDS", "casas,ph").split(',')
+DEFAULT_TERMS = os.getenv("DEFAULT_TERMS", "parrilla,jardin,cochera").split(',')
 
 # Configurable filters
-MAX_TOTAL_PRICE = 1400000
-MIN_TOTAL_PRICE = 700000
-MIN_AMBIENTES = 3
-MIN_BAÑOS = 2
-MIN_SUPERFICIE_CUBIERTA = 60
+MAX_TOTAL_PRICE = int(os.getenv("MAX_TOTAL_PRICE", 1400000))
+MIN_TOTAL_PRICE = int(os.getenv("MIN_TOTAL_PRICE", 700000))
+MIN_AMBIENTES = int(os.getenv("MIN_AMBIENTES", 3))
+MIN_BAÑOS = int(os.getenv("MIN_BAÑOS", 2))
+MIN_SUPERFICIE_CUBIERTA = int(os.getenv("MIN_SUPERFICIE_CUBIERTA", 60))
+
+
+
+SEEN_FILE = './seen_ids_ML.pkl'
+FIRST_RUN_FILE = './first_run_flag.txt'
 
 # Logging configuration
 logging.basicConfig(
